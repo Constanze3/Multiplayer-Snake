@@ -1,0 +1,168 @@
+  <div id="customization-menu-panel">
+    <ol id="menu-container">
+      <li id="dark-light-mpode-container"> </li>
+
+      <span>
+        <ol id="options">
+          <li class="customization-main-category">
+            <label>Main Menu</label>
+          </li>
+          <ol id="main-menu-options" class="options">
+            <li class="customization-option">
+              <label>Logo:</label>
+              <button>Color</button>
+            </li>
+            <li class="customization-option">
+              <label>Background:</label>
+              <button>Color</button>
+            </li>
+            <li class="customization-category">
+              <label> Input </label>
+            </li>
+            <li>
+              <ol class="sub-options">
+                <li class="customization-option">
+                  <label>Background:</label>
+                  <button>Color</button>
+                </li>
+                <li class="customization-option">
+                  <label>Border:</label>
+                  <button>Color</button>
+                </li>
+                <li class="customization-option">
+                  <label>Text:</label>
+                  <button>Color</button>
+                </li>
+              </ol>
+            </li>
+            <li class="customization-category">
+              <label>Button</label>
+            </li>
+            <li>
+              <ol class="sub-options">
+                <li class="customization-option">
+                  <label>Background:</label>
+                  <button>Color</button>
+                </li>
+                <li class="customization-option">
+                  <label>Border:</label>
+                  <button>Color</button>
+                </li>
+                <li class="customization-option">
+                  <label>Text:</label>
+                  <button>Color</button>
+                </li>
+                <li class="customization-option">
+                  <label>Hover Text:</label>
+                  <button>Color</button>
+                </li>
+              </ol>
+            </li>
+          </ol>
+      </span>
+
+      <span>
+        <li>Sidebar</li>
+        <ol class="options">
+          <li class="customization-option">Background:</li>
+          <li class="customization-option">Settings:</li>
+          <li>Exit</li>
+          <ol class="sub-options">
+            <li class="customization-option">Text:</li>
+            <li class="customization-option">Hover Text:</li>
+          </ol>
+        </ol>
+      </span>
+
+      <span>
+        <li>Lobby Menu</li>
+        <ol class="options">
+          <li class="customization-option">Background:</li>
+          <li class="customization-option">Ready Count Text:</li>
+          <li>Button</li>
+          <ol class="sub-options">
+            <li class="customization-option">Text:</li>
+            <li class="customization-option">Hover Text:</li>
+          </ol>
+        </ol>
+      </span>
+
+      <span>
+        <li>Game</li>
+        <ol class="options">
+          <li class="customization-option">Background:</li>
+          <li class="customization-option">Apple:</li>
+          <li class="customization-option">Snakes</li>
+          <ol class="sub-options">
+            <li class="customization-option">Your Snake:</li>
+            <li class="customization-option">Snake2:</li>
+            <li class="customization-option">Snake3:</li>
+            <li class="customization-option">Snake4:</li>
+          </ol>
+        </ol>
+      </span>
+
+    </ol>
+    </ol>
+  </div>
+
+ol {
+  padding-left: 0;
+}
+
+ol li {
+  list-style-type: none;
+}
+
+.customization-option, .customization-category, .customization-main-category {
+  color: white;
+  background-color: transparent;
+  width: 150px;
+  height: 22px;
+  margin-bottom: 1px;
+  display: flex;
+}
+
+.customization-option label {
+  font-weight: normal;
+  font-size: 14px;
+  width: 100px;
+  display: inline-block;
+}
+
+.customization-option button {
+  border: 0;
+  background-color: #4a4a4a;
+  color: inherit;
+  display: block;
+}
+
+.customization-category label {
+  color: #14e8ff;
+  font-size: 15px;
+}
+
+.customization-main-category label {
+  color: #ff1457;
+  font-size: 16px;
+}
+
+#menu-container {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 50px;
+}
+
+.options,
+.sub-options {
+  padding-left: 0px;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 50px;
+}

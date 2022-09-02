@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SNAKE 1v1</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="libraries/p5.min.js"></script>
+
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+  <script src="client.js"></script>
+  <script src="customization.js"></script>
+</head>
+
+<body>
+
+  <div id="customization-panel" class="customization-menu">
+    <div id="customization-container">
+
+      <div id="left-side" class="customization-module">
+
+        <div class="category-title">
+          <label>Customize:</label>
+        </div>
+
+        <div id="options-container">
+
+          <div class="option">
+            <label>main</label>
+            <button id="customization-button-main" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>text</label>
+            <button id="customization-button-text" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>background</label>
+            <button id="customization-button-background" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>screen</label>
+            <button id="customization-button-screen" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>UI</label>
+            <button id="customization-button-UI" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>apple</label>
+            <button id="customization-button-apple" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>your snake</label>
+            <button id="customization-button-your-snake" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>snake 2</label>
+            <button id="customization-button-snake2" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>snake 3</label>
+            <button id="customization-button-snake3" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>snake 4</label>
+            <button id="customization-button-snake4" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+          <div class="option">
+            <label>exit</label>
+            <button id="customization-button-snake4" class="customization-option-button"
+              onclick="customizationButtonClick(this.id)"></button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="right-side" class="customization-module">
+        <div id="color-picker"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="ui customization-menu" onclick="hideCustomizationMenu()">X</button>
+
+</body>
+
+</html>
