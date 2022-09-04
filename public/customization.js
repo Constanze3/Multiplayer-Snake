@@ -1,68 +1,93 @@
+let customizationMenu;
 
-const customizationMenu = document.getElementsByClassName("customization-menu");
-const customizationButtons = document.getElementsByClassName("customization-option-button");
-let selectedCustomizationButton;
+// Fires when site is loaded (Is only temporary here)
+document.addEventListener('DOMContentLoaded', () => {
+    customizationMenu = new CustomizationMenu();
+});
 
-const colorPicker = new iro.ColorPicker('#color-picker', {
-    width: 200,
-    color: "rgb(255, 0, 0)",
-    borderWidth: 1,
-    borderColor: "#fff",
-    layout: [
-        {
-            component: iro.ui.Box,
-            options: {}
-        },
-        {
-            component: iro.ui.Slider,
-            options: {
-                sliderType: 'hue'
-            }
+// The customization menu where you can set all colors of the site
+class CustomizationMenu {
+
+    constructor() {
+        this.colorPicker = this.createColorPicker("#color-picker");
+        this.menuContainers = document.getElementsByClassName("customization-menu");
+        this.buttons = document.getElementsByClassName("customization-option-button");
+
+        this.selectedButton = null;
+
+        //Set up onclick event for buttons
+        this.buttons.forEach(button => { button.onclick = () => { this.buttonSelected(button.id) } });
+
+        this.colorPicker.on('color:change', this.changeButtonColor);
+    }
+
+    // Shows or Hides the Menu
+    setActive = (state) => {
+        if (state == true) {
+            this.menuContainers.forEach(element => { element.style.display = "block" });
         }
-    ]
-});
-
-colorPicker.on('color:change', function (color) {
-    if (selectedCustomizationButton != null) {
-        selectedCustomizationButton.style.backgroundColor = color.hexString;
-        selectedCustomizationButton.style.setProperty("--dark-border", color.hexString);
-        setButtonLightOrDark(selectedCustomizationButton, color.rgb);
+        else {
+            this.menuContainers.forEach(element => { element.style.display = "none" });
+            this.deselectCurrentButton();
+        }
     }
-});
 
-function customizationButtonClick(buttonId) {
-    let clickedButton = document.getElementById(buttonId);
-    customizationButtons.forEach(button => {
-        button.classList.remove("selected");
-    });
-    clickedButton.classList.add("selected");
-    selectedCustomizationButton = clickedButton;
-}
-
-function setButtonLightOrDark(button, color) {
-    let luminance = 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b;
-    if (luminance < 128) {
-        button.classList.remove("light");
-        button.classList.add("dark");
+    // Fires when a Button is Selected
+    buttonSelected = (buttonId) => {
+        if (this.selectedButton != null) this.deselectCurrentButton();
+        this.selectedButton = document.getElementById(buttonId);
+        this.selectedButton.classList.add("selected");
     }
-    else {
-        button.classList.remove("dark");
-        button.classList.add("light");
+
+    // Deselects Currently Selected Button
+    deselectCurrentButton = () => {
+        if (this.selectedButton == null) return;
+        this.selectedButton.classList.remove("selected")
+        this.selectedButton = null;
     }
-}
 
-function showCustomizationMenu() {
-    customizationMenu.forEach(element => {
-        element.style.display = "block";
-    });
-}
+    // Changes the color of the currently selected button
+    changeButtonColor = (color) => {
+        if (this.selectedButton == null) return;
 
-function hideCustomizationMenu() {
-    selectedCustomizationButton = null;
-    customizationButtons.forEach(button => {
-        button.classList.remove("selected");
-    });
-    customizationMenu.forEach(element => {
-        element.style.display = "none";
-    });
+        this.selectedButton.style.backgroundColor = color.hexString;
+
+        this.selectedButton.style.setProperty("--dark-border", color.hexString);
+        this.setButtonToLightOrDark(this.selectedButton, color.rgb);
+    }
+
+    // Sets a button's class to ligh or dark according to it's color value
+    setButtonToLightOrDark(button, color) {
+        let luminance = 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b;
+
+        if (luminance < 128) {
+            button.classList.remove("light");
+            button.classList.add("dark");
+        }
+        else {
+            button.classList.remove("dark");
+            button.classList.add("light");
+        }
+    }
+
+    // Creates ColorPicker element using iro.js library
+    createColorPicker = (elementId) =>
+        new iro.ColorPicker(elementId, {
+            width: 200,
+            color: "rgb(255, 0, 0)",
+            borderWidth: 1,
+            borderColor: "#fff",
+            layout: [
+                {
+                    component: iro.ui.Box,
+                    options: {}
+                },
+                {
+                    component: iro.ui.Slider,
+                    options: {
+                        sliderType: 'hue'
+                    }
+                }
+            ]
+        });
 }

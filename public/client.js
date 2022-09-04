@@ -24,12 +24,14 @@ function setup() {
     gameOverMenu = new GameOverMenu();
 
     setupSocket("http://localhost:3000");
-    //setupSocket("http://supersunset.tk");
 
     createCanvas(800, 700);
     frameRate(60);
 
     mainMenu.draw();
+
+    let settings = document.getElementById("settings");
+    if (settings != null) settings.onclick = () => { customizationMenu.setActive(true) };
 }
 
 function setupSocket(address) {
@@ -342,7 +344,6 @@ class MainMenu extends Menu {
         rect(700, 0, 100, 700);
 
         let settingsButton = createButton("⚙");
-        settingsButton.mousePressed(showCustomizationMenu);
         settingsButton.id("settings");
         this.container.settingsButton = settingsButton;
 
