@@ -5,12 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
     customizationMenu = new CustomizationMenu();
 });
 
+// The Parent class for all menus, with a few generally useful functions
+class Menu {
+    constructor() {
+        this.containers = null;
+        this.active = false;
+    }
+
+    // Shows or Hides the Menu
+    setActive = (state) => {
+        let displayStyle = "none";
+
+        if (state == true) {
+            displayStyle = "block";
+        }
+
+        this.containers.forEach(element => { element.style.display = displayStyle });
+
+        //possible solution
+        this.containers.forEach(element => {
+            state ? element.classList.add("visible") : element.classList.remove("visible")
+        });
+
+        this.setActiveHelper(state);
+    }
+
+    //Helper to add more code to SetActive based on what the specific sub class needs
+    setActiveHelper = (state) => { }
+}
+
 // The customization menu where you can set all colors of the site
-class CustomizationMenu {
+class CustomizationMenu extends Menu {
 
     constructor() {
+        super();
+
         this.colorPicker = this.createColorPicker("#color-picker");
-        this.menuContainers = document.getElementsByClassName("customization-menu");
+        this.containers = document.getElementsByClassName("customization-menu");
         this.buttons = document.getElementsByClassName("customization-option-button");
 
         this.selectedButton = null;
@@ -21,13 +52,9 @@ class CustomizationMenu {
         this.colorPicker.on('color:change', this.changeButtonColor);
     }
 
-    // Shows or Hides the Menu
-    setActive = (state) => {
-        if (state == true) {
-            this.menuContainers.forEach(element => { element.style.display = "block" });
-        }
-        else {
-            this.menuContainers.forEach(element => { element.style.display = "none" });
+    // Overwrites the setActiveHelper of Menu class which will be executed on setActive(state)
+    setActiveHelper = (state) => {
+        if (state == false) {
             this.deselectCurrentButton();
         }
     }

@@ -315,7 +315,7 @@ class RoomManager {
     }
 }
 
-class Menu {
+class OldMenu {
     constructor() {
         this.container = {};
         this.active = false;
@@ -330,7 +330,7 @@ class Menu {
     }
 }
 
-class MainMenu extends Menu {
+class MainMenu extends OldMenu {
 
     draw = () => {
         this.clear(0);
@@ -369,7 +369,7 @@ class MainMenu extends Menu {
     }
 }
 
-class LobbyMenu extends Menu {
+class LobbyMenu extends OldMenu {
 
     constructor() {
         super();
@@ -410,7 +410,7 @@ class LobbyMenu extends Menu {
     }
 }
 
-class UI extends Menu {
+class UI extends OldMenu {
     draw = () => {
         this.clear()
 
@@ -446,7 +446,7 @@ class UI extends Menu {
     }
 }
 
-class GameOverMenu extends Menu {
+class GameOverMenu extends OldMenu {
     draw = (t) => {
         this.clear();
 
