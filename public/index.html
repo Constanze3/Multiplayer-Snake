@@ -25,84 +25,82 @@
 
 <body>
 
-  <div id="customization-panel" class="customization-menu" style="display: none;">
-    <div id="customization-container">
+  <div id="customization-container" class="customization-menu menu visible">
 
-      <div id="left-side" class="customization-module">
+    <div id="left-side" class="customization-module">
 
-        <div class="category-title">
-          <label>Customize:</label>
-        </div>
-
-        <div id="options-container">
-
-          <div class="option">
-            <label>main</label>
-            <button id="customization-button-main" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>text</label>
-            <button id="customization-button-text" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>background</label>
-            <button id="customization-button-background" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>screen</label>
-            <button id="customization-button-screen" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>UI</label>
-            <button id="customization-button-UI" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>apple</label>
-            <button id="customization-button-apple" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>your snake</label>
-            <button id="customization-button-your-snake" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>snake 2</label>
-            <button id="customization-button-snake2" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>snake 3</label>
-            <button id="customization-button-snake3" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>snake 4</label>
-            <button id="customization-button-snake4" class="customization-option-button"></button>
-          </div>
-
-          <div class="option">
-            <label>exit</label>
-            <button id="customization-button-exit" class="customization-option-button"></button>
-          </div>
-
-        </div>
-
+      <div class="category-title">
+        <label>Customize:</label>
       </div>
 
-      <div id="right-side" class="customization-module">
-        <div id="color-picker"></div>
+      <div id="options-container">
+
+        <div class="option">
+          <label>main</label>
+          <button id="customization-button-main" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>text</label>
+          <button id="customization-button-text" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>background</label>
+          <button id="customization-button-background" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>screen</label>
+          <button id="customization-button-screen" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>UI</label>
+          <button id="customization-button-UI" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>apple</label>
+          <button id="customization-button-apple" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>your snake</label>
+          <button id="customization-button-your-snake" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>snake 2</label>
+          <button id="customization-button-snake2" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>snake 3</label>
+          <button id="customization-button-snake3" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>snake 4</label>
+          <button id="customization-button-snake4" class="customization-option-button"></button>
+        </div>
+
+        <div class="option">
+          <label>exit</label>
+          <button id="customization-button-exit" class="customization-option-button"></button>
+        </div>
+
       </div>
 
     </div>
+
+
+    <div id="color-picker" class="customization-module"></div>
+
+
   </div>
 
-  <button class="ui customization-menu" onclick="customizationMenu.setActive(false)" style="display: none">X</button>
+  <button class="ui customization-menu menu visible" onclick="customizationMenu.setActive(false)">X</button>
 
 </body>
 

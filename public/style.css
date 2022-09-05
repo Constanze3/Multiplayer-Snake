@@ -1,19 +1,112 @@
+/* Base */
+
 html,
 body {
+  background-color: #262626;
+  color: white;
+  font-family: monospace;
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: #262626;
-  font-family: monospace;
-  color: white;
   user-select: none;
 }
 
 body {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 0;
+}
+
+/* Menu */
+.menu {
+  display: block;
+  position: absolute;
+}
+
+.menu:not(.visible) {
+  display: none;
+}
+
+
+/* Customization Menu */
+
+/* Container for the entire customization menu */
+#customization-container {
+  position: absolute;
+}
+
+/* Each "column" of the menu */
+.customization-module {
+  display: inline-block;
+  margin-left: 30px;
+  margin-right: 30px;
+  vertical-align: middle;
+}
+
+/* The color picker element */
+#color-picker {
+  margin-top: 70px;
+}
+
+/* The title for the menu */
+.category-title {
+  color: #ff1457;
+  border-bottom: 5px solid #ff1457;
+  display: inline-block;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+/* The Option Fields*/
+
+/* The box containing the label and the button */
+.option {
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+
+.option label {
+  display: inline-block;
+  font-size: 22px;
+  vertical-align: middle;
+  width: 140px;
+}
+
+/* The button get's a border depending if it's dark or light */
+.option button {
+  border-radius: 2px;
+  height: 34px;
+  vertical-align: middle;
+  width: 50px;
+}
+
+.customization-option-button:not(.dark) {
+  border: 3px solid var(--dark-border);
+}
+
+.customization-option-button.dark {
+  border: 3px solid #ffffff;
+}
+
+.customization-option-button.selected {
+  border: 3px solid #ff1457;
+}
+
+
+/* old */
+
+#settings {
+  position: absolute;
+  margin-bottom: 600px;
+  margin-left: 700px;
+  border: 0;
+  background-color: transparent;
+  font-size: 70px;
+  font-family: inherit;
+  font-weight: bold;
+  color: #858585;
 }
 
 input {
@@ -98,19 +191,6 @@ div.game_over {
   color: inherit;
 }
 
-#settings {
-  position: absolute;
-  margin-bottom: 600px;
-  margin-left: 700px;
-  border: 0;
-  background-color: transparent;
-  font-size: 70px;
-  font-family: inherit;
-  font-weight: bold;
-  color: #858585;
-}
-
-
 #customization-panel {
   position: absolute;
   z-index: 1;
@@ -119,87 +199,5 @@ div.game_over {
   border: 0;
   width: 700px;
   height: 700px;
-  background-color: #000000;
-}
-
-#customization-container {
-  padding-top: 40px;
-  padding-left: 100px;
-  height: 620px;
-}
-
-.customization-module {
-  width: 220px;
-  float: left;
-  height: 660x;
-}
-
-#left-side.customization-module {
-  margin-top: 100px;
-  margin-right: 110px;
-  width: 200px;
-}
-
-#main-options-container {
-  height: 400x;
-}
-
-#color-picker {
-  margin-top: 200px;
-}
-
-.main-option,
-.category-title label {
-  width: 200px;
-  border-bottom: 5px solid #ff1457;
-  font-size: 38px;
-  font-weight: bold;
-  color: #ff1457;
-  display: inline-block
-}
-
-.category-title {
-  margin-bottom: 10px;
-}
-
-.sub-category {
-  padding-top: 1px;
-  padding-bottom: 5px;
-}
-
-.sub-category label {
-  font-size: 30px;
-  font-weight: bold;
-  color: #14e8ff;
-}
-
-.option {
-  vertical-align: middle;
-  margin-bottom: 5px;
-}
-
-.option label {
-  display: inline-block;
-  width: 140px;
-  font-size: 22px;
-  color: #ffffff;
-}
-
-.option button {
-  vertical-align: text-bottom;
-  border-radius: 2px;
-  height: 20px;
-  width: 50px;
-}
-
-.customization-option-button.light {
-  border: 3px solid var(--dark-border);
-}
-
-.customization-option-button.dark {
-  border: 3px solid #ffffff;
-}
-
-.customization-option-button.selected {
-  border: 3px solid #ff1457;
+  background-color: #ff0000;
 }

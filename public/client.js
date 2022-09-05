@@ -335,6 +335,8 @@ class MainMenu extends OldMenu {
     draw = () => {
         this.clear(0);
 
+        /*
+
         //logo
         noStroke(); fill("#7bff00"); textSize(110); textStyle(BOLD); textFont("monospace");
         text("MP SNAKE", 113, 193);
@@ -343,9 +345,13 @@ class MainMenu extends OldMenu {
         fill("#171717");
         rect(700, 0, 100, 700);
 
+        */
+
         let settingsButton = createButton("⚙");
         settingsButton.id("settings");
         this.container.settingsButton = settingsButton;
+
+        /*
 
         //input field
         let inputField = createInput();
@@ -360,6 +366,8 @@ class MainMenu extends OldMenu {
         this.container.button = button;
 
         this.active = true;
+        
+        */
     }
 
     drawError = (error) => {

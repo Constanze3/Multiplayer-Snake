@@ -7,22 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // The Parent class for all menus, with a few generally useful functions
 class Menu {
-    constructor() {
-        this.containers = null;
+    constructor(containerClass) {
+        this.containers = document.getElementsByClassName(containerClass);
         this.active = false;
     }
 
     // Shows or Hides the Menu
     setActive = (state) => {
-        let displayStyle = "none";
 
-        if (state == true) {
-            displayStyle = "block";
-        }
-
-        this.containers.forEach(element => { element.style.display = displayStyle });
-
-        //possible solution
+        // Sets visible class of all menu container elements
         this.containers.forEach(element => {
             state ? element.classList.add("visible") : element.classList.remove("visible")
         });
@@ -30,7 +23,7 @@ class Menu {
         this.setActiveHelper(state);
     }
 
-    //Helper to add more code to SetActive based on what the specific sub class needs
+    // Helper to add more code to SetActive based on what the specific sub class needs
     setActiveHelper = (state) => { }
 }
 
@@ -38,10 +31,9 @@ class Menu {
 class CustomizationMenu extends Menu {
 
     constructor() {
-        super();
+        super("customization-menu");
 
         this.colorPicker = this.createColorPicker("#color-picker");
-        this.containers = document.getElementsByClassName("customization-menu");
         this.buttons = document.getElementsByClassName("customization-option-button");
 
         this.selectedButton = null;
