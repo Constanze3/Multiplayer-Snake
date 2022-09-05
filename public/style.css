@@ -1,9 +1,28 @@
+:root {
+  --main: #7bff00;
+  --text: #ffffff;
+  --background: #262626;
+  --screen: #000000;
+  --ui: #171717;
+  --ui2: #4a4a4a;
+  --exit: #ff3030;
+}
+
+/* Useful classes */
+
+.center-inside {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+
 /* Base */
 
 html,
 body {
-  background-color: #262626;
-  color: white;
+  background-color: var(--background);
+  color: var(--text);
   font-family: monospace;
   height: 100%;
   margin: 0;
@@ -11,13 +30,23 @@ body {
   user-select: none;
 }
 
-body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+/* Screen */
+.screen {
+  background-color: var(--screen);
+  height: 700px;
+  width: 700px;
 }
 
-/* Menu */
+/* UI */
+.ui {
+  background-color: var(--ui);
+  display: flex;
+  height: 700px;
+  width: 100px;
+}
+
+
+/* This applies to all menus */
 .menu {
   display: block;
   position: absolute;
@@ -27,6 +56,49 @@ body {
   display: none;
 }
 
+
+/* Main Menu */
+
+/* The logo */
+.logo {
+  color: var(--main);
+  font-size: 110px;
+  font-weight: bold;
+  margin-bottom: 200px;
+}
+
+/* The input field where you can enter the name of the room you want to join */
+.room-input {
+  background-color: var(--ui);
+  border: 5px solid var(--ui2);
+  color: inherit;
+  font-family: inherit;
+  font-size: 30px;
+  height: 53px;
+  outline: 0;
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+.room-input::placeholder {
+  color: var(--ui2);
+}
+
+/* The CREATE/JOIN button */
+.join-room-button {
+  background-color: var(--ui);
+  border: 5px solid var(--ui2);
+  color: inherit;
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  height: 65px;
+  margin-left: 20px;
+}
+
+.join-room-button:hover {
+  color: var(--main);
+}
 
 /* Customization Menu */
 
@@ -50,8 +122,8 @@ body {
 
 /* The title for the menu */
 .category-title {
-  color: #ff1457;
-  border-bottom: 5px solid #ff1457;
+  color: var(--main);
+  border-bottom: 5px solid var(--main);
   display: inline-block;
   font-size: 38px;
   font-weight: bold;
@@ -77,7 +149,7 @@ body {
 /* The button get's a border depending if it's dark or light */
 .option button {
   border-radius: 2px;
-  height: 34px;
+  height: 30px;
   vertical-align: middle;
   width: 50px;
 }
@@ -107,42 +179,6 @@ body {
   font-family: inherit;
   font-weight: bold;
   color: #858585;
-}
-
-input {
-  position: absolute;
-  margin-top: 350px;
-  margin-right: 350px;
-  border: 5px solid #404040;
-  outline: 0;
-  height: 53px;
-  padding-left: 10px;
-  padding-right: 8px;
-  background-color: #171717;
-  font-size: 30px;
-  font-family: inherit;
-  color: inherit;
-}
-
-input::placeholder {
-  color: #4a4a4a;
-}
-
-button.main_menu {
-  position: absolute;
-  margin-top: 350px;
-  margin-left: 320px;
-  border: 5px solid #404040;
-  height: 65px;
-  background-color: #1c1c1c;
-  font-size: 30px;
-  font-family: inherit;
-  font-weight: bold;
-  color: inherit;
-}
-
-button.main_menu:hover {
-  color: #82ff30;
 }
 
 button.lobby_menu {

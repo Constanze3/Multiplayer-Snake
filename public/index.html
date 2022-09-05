@@ -20,87 +20,103 @@
   <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 
   <script src="menus.js"></script>
-  <script src="client.js"></script>
 </head>
 
-<body>
+<body class="center-inside">
 
-  <div id="customization-container" class="customization-menu menu visible">
+  <div class="screen center-inside">
 
-    <div id="left-side" class="customization-module">
+    <div class="main-menu menu visible">
+      <div class="logo center-inside">
+        <label>MP SNAKE</label>
+      </div>
+      <div class="room-choosing center-inside">
+        <input class="room-input" maxlength="21" placeholder="room name...">
+        <button class="join-room-button">CREATE/JOIN</button>
+      </div>
+    </div>
 
-      <div class="category-title">
-        <label>Customize:</label>
+    <div id="customization-container" class="customization-menu menu">
+
+      <div id="left-side" class="customization-module">
+
+        <div class="category-title">
+          <label>Customize:</label>
+        </div>
+
+        <div id="options-container">
+
+          <div class="option">
+            <label>main</label>
+            <button id="customization-button-main" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>text</label>
+            <button id="customization-button-text" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>background</label>
+            <button id="customization-button-background" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>screen</label>
+            <button id="customization-button-screen" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>UI</label>
+            <button id="customization-button-UI" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>apple</label>
+            <button id="customization-button-apple" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>your snake</label>
+            <button id="customization-button-your-snake" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>snake 2</label>
+            <button id="customization-button-snake2" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>snake 3</label>
+            <button id="customization-button-snake3" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>snake 4</label>
+            <button id="customization-button-snake4" class="customization-option-button"></button>
+          </div>
+
+          <div class="option">
+            <label>exit</label>
+            <button id="customization-button-exit" class="customization-option-button"></button>
+          </div>
+
+        </div>
+
       </div>
 
-      <div id="options-container">
 
-        <div class="option">
-          <label>main</label>
-          <button id="customization-button-main" class="customization-option-button"></button>
-        </div>
+      <div id="color-picker" class="customization-module"></div>
 
-        <div class="option">
-          <label>text</label>
-          <button id="customization-button-text" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>background</label>
-          <button id="customization-button-background" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>screen</label>
-          <button id="customization-button-screen" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>UI</label>
-          <button id="customization-button-UI" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>apple</label>
-          <button id="customization-button-apple" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>your snake</label>
-          <button id="customization-button-your-snake" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>snake 2</label>
-          <button id="customization-button-snake2" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>snake 3</label>
-          <button id="customization-button-snake3" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>snake 4</label>
-          <button id="customization-button-snake4" class="customization-option-button"></button>
-        </div>
-
-        <div class="option">
-          <label>exit</label>
-          <button id="customization-button-exit" class="customization-option-button"></button>
-        </div>
-
-      </div>
 
     </div>
 
-
-    <div id="color-picker" class="customization-module"></div>
-
-
   </div>
 
-  <button class="ui customization-menu menu visible" onclick="customizationMenu.setActive(false)">X</button>
+
+  <div class="ui">
+    <button class="ui customization-menu menu" onclick="customizationMenu.setActive(false)">X</button>
+  </div>
 
 </body>
 
