@@ -36,6 +36,11 @@
       </div>
     </div>
 
+    <div class="lobby-menu menu">
+      <button>PLAY!</button>
+      <label>0/2</label>
+    </div>
+
     <div id="customization-container" class="customization-menu menu">
 
       <div id="left-side" class="customization-module">
@@ -114,8 +119,9 @@
   </div>
 
 
-  <div class="ui">
-    <button class="ui customization-menu menu" onclick="customizationMenu.setActive(false)">X</button>
+  <div class="ui menu visible">
+    <button class="settings" onclick="customizationMenu.setActive(true)">⚙</button>
+    <button class="exit" onclick="customizationMenu.setActive(false)">X</button>
   </div>
 
 </body>

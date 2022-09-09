@@ -5,7 +5,7 @@ let id;
 
 let roomManager;
 
-let mainMenu;
+let oldMainMenu;
 let ui;
 let lobbyMenu;
 let gameOverMenu;
@@ -18,9 +18,9 @@ function setup() {
 
     roomManager = new RoomManager();
 
-    mainMenu = new MainMenu();
-    lobbyMenu = new LobbyMenu();
-    ui = new UI();
+    oldMainMenu = new OldMainMenu();
+    lobbyMenu = new OldLobbyMenu();
+    ui = new OldUI();
     gameOverMenu = new GameOverMenu();
 
     setupSocket("http://localhost:3000");
@@ -28,7 +28,7 @@ function setup() {
     createCanvas(800, 700);
     frameRate(60);
 
-    mainMenu.draw();
+    oldMainMenu.draw();
 
     let settings = document.getElementById("settings");
     if (settings != null) settings.onclick = () => { customizationMenu.setActive(true) };
@@ -221,7 +221,7 @@ class Game {
 function keyPressed() {
 
     if (keyCode == ENTER) {
-        if (mainMenu.active) roomManager.joinRoom();
+        if (oldMainMenu.active) roomManager.joinRoom();
         if (lobbyMenu.active) lobbyMenu.startButtonClick();
     }
 
@@ -286,16 +286,16 @@ function lerp(x, y, a) {
 
 class RoomManager {
     joinRoom = () => {
-        socket.emit("join_room", mainMenu.container.inputField.value());
+        socket.emit("join_room", oldMainMenu.container.inputField.value());
     }
 
     joinRoomCallback = success => {
         if (success) {
-            mainMenu.clear(0);
+            oldMainMenu.clear(0);
             lobbyMenu.draw();
         }
         else {
-            mainMenu.drawError("this room is sadly full");
+            oldMainMenu.drawError("this room is sadly full");
         }
     }
 
@@ -311,7 +311,7 @@ class RoomManager {
 
         ready = false;
 
-        mainMenu.draw();
+        oldMainMenu.draw();
     }
 }
 
@@ -330,7 +330,7 @@ class OldMenu {
     }
 }
 
-class MainMenu extends OldMenu {
+class OldMainMenu extends OldMenu {
 
     draw = () => {
         this.clear(0);
@@ -346,10 +346,6 @@ class MainMenu extends OldMenu {
         rect(700, 0, 100, 700);
 
         */
-
-        let settingsButton = createButton("⚙");
-        settingsButton.id("settings");
-        this.container.settingsButton = settingsButton;
 
         /*
 
@@ -377,7 +373,7 @@ class MainMenu extends OldMenu {
     }
 }
 
-class LobbyMenu extends OldMenu {
+class OldLobbyMenu extends OldMenu {
 
     constructor() {
         super();
@@ -418,7 +414,7 @@ class LobbyMenu extends OldMenu {
     }
 }
 
-class UI extends OldMenu {
+class OldUI extends OldMenu {
     draw = () => {
         this.clear()
 

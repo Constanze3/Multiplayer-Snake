@@ -1,8 +1,10 @@
+let mainMenu;
 let customizationMenu;
 
 // Fires when site is loaded (Is only temporary here)
 document.addEventListener('DOMContentLoaded', () => {
-    customizationMenu = new CustomizationMenu();
+    mainMenu = new MainMenu("main-menu");
+    customizationMenu = new CustomizationMenu("customization-menu");
 });
 
 // The Parent class for all menus, with a few generally useful functions
@@ -27,11 +29,33 @@ class Menu {
     setActiveHelper = (state) => { }
 }
 
+// The sidebar at the right side of the screen
+class SideBar extends Menu {
+
+}
+
+// The main menu where you can join a room
+class MainMenu extends Menu {
+    constructor(containerClass) {
+        super(containerClass);
+    }
+
+    displayError = (error) => {
+        // !!! Should display error message in menu
+    }
+}
+
+// The small menu that appears when joining a game
+class LobbyMenu extends Menu {
+
+}
+
+
 // The customization menu where you can set all colors of the site
 class CustomizationMenu extends Menu {
 
-    constructor() {
-        super("customization-menu");
+    constructor(containerClass) {
+        super(containerClass);
 
         this.colorPicker = this.createColorPicker("#color-picker");
         this.buttons = document.getElementsByClassName("customization-option-button");
