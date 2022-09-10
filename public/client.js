@@ -23,7 +23,7 @@ function setup() {
     ui = new UI();
     gameOverMenu = new GameOverMenu();
 
-    setupSocket(`https://multiplayer-snake-production.up.railway.app:${PORT}`);
+    setupSocket(`https://multiplayer-snake-production.up.railway.app:3000`);
 
     createCanvas(800, 700);
     frameRate(60);
