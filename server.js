@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
     socket.on("directional_input", (input) => { if (client.snake != null) client.snake.setDirection(input) });
 });
 
-httpServer.listen(3000, () => {
+httpServer.listen(PORT, () => {
     console.log("server listening on port 3000");
 });
 
