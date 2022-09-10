@@ -7,16 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
     customizationMenu = new CustomizationMenu("customization-menu");
 });
 
-// The Parent class for all menus, with a few generally useful functions
+class SideBar {
+
+}
+
 class Menu {
     constructor(containerClass) {
         this.containers = document.getElementsByClassName(containerClass);
         this.active = false;
     }
 
-    // Shows or Hides the Menu
-    setActive = (state) => {
 
+    setActive = (state) => {
         // Sets visible class of all menu container elements
         this.containers.forEach(element => {
             state ? element.classList.add("visible") : element.classList.remove("visible")
@@ -29,31 +31,18 @@ class Menu {
     setActiveHelper = (state) => { }
 }
 
-// The sidebar at the right side of the screen
-class SideBar extends Menu {
-
-}
-
-// The main menu where you can join a room
 class MainMenu extends Menu {
-    constructor(containerClass) {
-        super(containerClass);
-    }
-
     displayError = (error) => {
         // !!! Should display error message in menu
     }
 }
 
-// The small menu that appears when joining a game
 class LobbyMenu extends Menu {
 
 }
 
 
-// The customization menu where you can set all colors of the site
 class CustomizationMenu extends Menu {
-
     constructor(containerClass) {
         super(containerClass);
 
@@ -75,14 +64,12 @@ class CustomizationMenu extends Menu {
         }
     }
 
-    // Fires when a Button is Selected
     buttonSelected = (buttonId) => {
         if (this.selectedButton != null) this.deselectCurrentButton();
         this.selectedButton = document.getElementById(buttonId);
         this.selectedButton.classList.add("selected");
     }
 
-    // Deselects Currently Selected Button
     deselectCurrentButton = () => {
         if (this.selectedButton == null) return;
         this.selectedButton.classList.remove("selected")
@@ -99,7 +86,6 @@ class CustomizationMenu extends Menu {
         this.setButtonToLightOrDark(this.selectedButton, color.rgb);
     }
 
-    // Sets a button's class to ligh or dark according to it's color value
     setButtonToLightOrDark(button, color) {
         let luminance = 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b;
 

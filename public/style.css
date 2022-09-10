@@ -37,8 +37,9 @@ body {
   width: 700px;
 }
 
-/* UI */
-.ui {
+/* Side Bar */
+
+.sidebar {
   align-items: center;
   background-color: var(--ui);
   display: flex;
@@ -47,7 +48,7 @@ body {
   width: 100px;
 }
 
-.ui .settings {
+.sidebar .settings {
   background-color: transparent;
   border: 0;
   color: var(--ui2);
@@ -58,15 +59,15 @@ body {
   margin-top: 10px;
 }
 
-.ui .settings:hover {
+.sidebar .settings:hover {
   color: inherit;
 }
 
-.ui button {
+.sidebar button {
   display: block;
 }
 
-.ui .exit {
+.sidebar .exit {
   background: transparent;
   border: 0;
   color: var(--ui2);
@@ -77,16 +78,14 @@ body {
   width: 150px;
 }
 
-.ui .exit:hover {
+.sidebar .exit:hover {
   color: var(--exit);
 }
-
 
 /* If menu doesn't have visible class hide it */
 .menu:not(.visible) {
   display: none;
 }
-
 
 /* Main Menu */
 
@@ -115,7 +114,7 @@ body {
   color: var(--ui2);
 }
 
-/* The CREATE/JOIN button */
+/* The create/join room button */
 .join-room-button {
   background-color: var(--ui);
   border: 5px solid var(--ui2);
@@ -129,6 +128,39 @@ body {
 
 .join-room-button:hover {
   color: var(--main);
+}
+
+/* Lobby Menu */
+
+.lobby-menu {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 400px;
+}
+
+.lobby-menu button {
+  background-color: #262626;
+  border: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  height: 80px;
+  width: 160px;
+}
+
+.lobby-menu button:hover {
+  color: var(--main);
+}
+
+.lobby-menu label {
+  background-color: var(--ui2);
+  font-size: 30px;
+  font-weight: bold;
+  height: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: middle;
+  width: 80px;
 }
 
 /* Customization Menu */
@@ -208,13 +240,9 @@ button.lobby_menu {
   height: 45px;
   width: 150px;
   background-color: #1c1c1c;
-  font-size: 30px;
+
   font-family: inherit;
   color: inherit;
-}
-
-button.lobby_menu:hover {
-  color: #82ff30;
 }
 
 div.game_over {
@@ -224,15 +252,4 @@ div.game_over {
   font-size: 120px;
   font-weight: bold;
   color: inherit;
-}
-
-#customization-panel {
-  position: absolute;
-  z-index: 1;
-  margin-right: 100px;
-  margin-bottom: 2px;
-  border: 0;
-  width: 700px;
-  height: 700px;
-  background-color: #ff0000;
 }
